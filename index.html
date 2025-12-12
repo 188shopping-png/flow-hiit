@@ -6,8 +6,7 @@
     <title>Flow HIIT</title>
     
     <!-- Android PWA Setup -->
-    <!-- Note: manifest must be in public folder to work in build, commenting out to prevent 404s until moved -->
-    <!-- <link rel="manifest" href="./manifest.json" /> -->
+    <link rel="manifest" href="/flow-hiit/assets/manifest-DuXy104V.json" />
     <meta name="theme-color" content="#121212" />
     <meta name="mobile-web-app-capable" content="yes">
     
@@ -53,7 +52,9 @@
     "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
     "lucide-react": "https://esm.sh/lucide-react@^0.560.0",
     "vite": "https://esm.sh/vite@^7.2.7",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "path": "https://esm.sh/path@^0.12.7",
+    "fs": "https://esm.sh/fs@^0.0.1-security"
   }
 }
 </script>
@@ -62,12 +63,16 @@
   <body>
     <div id="root"></div>
     <script>
-      // Temporarily unregister SW to clear any broken caches
+      // Register Service Worker for PWA
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          for(let registration of registrations) {
-            registration.unregister();
-          }
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js', { scope: '/flow-hiit/' })
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
         });
       }
     </script>
