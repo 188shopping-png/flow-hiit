@@ -114,20 +114,23 @@ function pcmToWavBase64(pcmData: Uint8Array, sampleRate: number = 24000): Promis
   });
 }
 
+/**
+ * 严格净化文本，防止 Gemini 产生对话欲望
+ */
 const sanitizeForTTS = (text: string): string => {
-  // 移除所有可能干扰模型的符号，只保留文字和基本停顿
   let cleaned = text
     .replace(/[^\u4e00-\u9fa5a-zA-Z0-9\s]/g, ' ') 
     .replace(/\s+/g, ' ')
     .trim();
   
-  // 如果文本过短或为空，Gemini TTS 容易报错，补全它
-  if (!cleaned || cleaned.length < 1) return "请运动";
+  if (!cleaned || cleaned.length < 1) return "开始运动";
   
-  return cleaned;
+  // 限制长度，防止模型超时或产生幻觉
+  return cleaned.substring(0, 50);
 };
 
 export const generateAIVoice = async (text: string, voiceName: string): Promise<string> => {
+  // 注意：在调用此函数前，环境必须注入 API_KEY
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   const sanitizedText = sanitizeForTTS(text);
   
@@ -135,11 +138,11 @@ export const generateAIVoice = async (text: string, voiceName: string): Promise<
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash-preview-tts",
       contents: [{ 
-        // 关键修复：不再使用 "Say:" 前缀，因为在某些上下文模型会将其理解为对话指令
-        // 直接发送要朗读的文本是 Gemini 2.5 TTS 的标准调用方式
+        // 关键：不加任何前缀，只发送朗读内容
         parts: [{ text: sanitizedText }] 
       }],
       config: {
+        // 强制仅音频模式
         responseModalities: [Modality.AUDIO],
         speechConfig: {
           voiceConfig: {
@@ -149,22 +152,25 @@ export const generateAIVoice = async (text: string, voiceName: string): Promise<
       },
     });
 
-    if (!response.candidates || response.candidates.length === 0) {
-      throw new Error("模型未返回候选结果");
+    if (!response.candidates?.[0]) {
+      throw new Error("模型响应为空");
     }
 
     const candidate = response.candidates[0];
 
-    // 处理特殊停止原因
-    if (candidate.finishReason === 'SAFETY') {
-      throw new Error("内容触发安全审核限制");
+    // 检查模型是否误输出了文字内容（这是 400 错误的根源）
+    const textPart = candidate.content?.parts.find(p => p.text);
+    if (textPart && textPart.text) {
+      console.warn("检测到模型输出了文本而非纯音频，强制重试或降级。内容:", textPart.text);
+      // 如果模型输出了文本，说明它违背了 TTS 模式，直接抛出错误触发降级
+      throw new Error("RecitationError: Model generated text instead of audio.");
     }
-    if (candidate.finishReason === 'OTHER' || candidate.finishReason === 'RECITATION') {
-      throw new Error(`模型拒绝生成音频 (原因: ${candidate.finishReason})`);
+
+    if (candidate.finishReason === 'SAFETY' || candidate.finishReason === 'OTHER') {
+      throw new Error(`生成失败 (原因: ${candidate.finishReason})`);
     }
 
     let base64PCM: string | undefined;
-
     if (candidate.content?.parts) {
       const audioPart = candidate.content.parts.find(p => p.inlineData?.data);
       if (audioPart) {
@@ -173,26 +179,13 @@ export const generateAIVoice = async (text: string, voiceName: string): Promise<
     }
 
     if (!base64PCM) {
-      throw new Error("响应中不包含有效的音频流数据");
+      throw new Error("响应中缺失音频流");
     }
     
     const pcmBytes = decodeBase64(base64PCM);
     return await pcmToWavBase64(pcmBytes, 24000);
   } catch (error: any) {
-    console.error("Gemini TTS 核心失败:", error);
-    
-    const errorStr = typeof error === 'string' ? error : JSON.stringify(error, Object.getOwnPropertyNames(error));
-    const code = error.status || error.code || (error.error?.code) || 0;
-
-    // 针对 400 错误的特殊话术引导
-    if (code === 400 || errorStr.includes("INVALID_ARGUMENT") || errorStr.includes("generate text")) {
-      throw new Error("AI 朗读模式冲突 (400)。\n模型尝试进行文本对话而非单纯朗读。建议精简或更改动作名称。");
-    }
-
-    if (errorStr.includes("RESOURCE_EXHAUSTED") || code === 429) {
-      throw new Error("AI 语音配额已耗尽或项目未开启计费。");
-    }
-
+    console.error("Gemini TTS Error:", error);
     throw error;
   }
 };
