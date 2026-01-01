@@ -1,0 +1,161 @@
+[
+  {
+    "id": "1",
+    "name": "健身",
+    "createdAt": 1765535593058,
+    "items": [
+      {
+        "id": "1",
+        "type": "SIMPLE",
+        "name": "准备",
+        "duration": 30,
+        "color": "#D0BCFF",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "2",
+        "type": "INTERVAL",
+        "name": "绕头练习，左手训练",
+        "duration": 50,
+        "restDuration": 15,
+        "rounds": 6,
+        "color": "#C5E1A5",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "e62729cf-5f5c-4011-a29e-5c2e3217a9b1",
+        "type": "SIMPLE",
+        "name": "休息一分钟。准备挥拍动作练习。",
+        "duration": 60,
+        "restDuration": 30,
+        "rounds": 4,
+        "color": "#C5E1A5",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "f5bad813-4c8b-47a8-b021-5b5b33148d7d",
+        "type": "INTERVAL",
+        "name": "挥拍动作练习。",
+        "duration": 50,
+        "restDuration": 15,
+        "rounds": 6,
+        "color": "#B6C4FF",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "b189c05e-6471-4338-99aa-ad34be368208",
+        "type": "SIMPLE",
+        "name": "休息一分钟。准备二头肌训练。",
+        "duration": 60,
+        "restDuration": 30,
+        "rounds": 4,
+        "color": "#FFCC80",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "6be2abc9-2aff-46f1-8841-7326405e439d",
+        "type": "INTERVAL",
+        "name": "哑铃二头肌训练。",
+        "duration": 80,
+        "restDuration": 30,
+        "rounds": 3,
+        "color": "#C5E1A5",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "09d5538d-ca94-461a-948b-a8de3569c43f",
+        "type": "SIMPLE",
+        "name": "休息一分钟。下一个练习哑铃三头肌加手腕锻炼。",
+        "duration": 60,
+        "restDuration": 30,
+        "rounds": 4,
+        "color": "#F2B8B5",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "99f99a97-630d-4089-b4fd-ee572361be69",
+        "type": "INTERVAL",
+        "name": "哑铃三头肌加手腕锻炼",
+        "duration": 35,
+        "restDuration": 15,
+        "rounds": 6,
+        "color": "#FFCC80",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "3785d351-eb9a-42a2-a8b6-dd473b2f1492",
+        "type": "SIMPLE",
+        "name": "休息一分钟，准备举重练习。",
+        "duration": 60,
+        "restDuration": 30,
+        "rounds": 4,
+        "color": "#FFCC80",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "2fa5f5bd-37a6-45eb-b1c2-5943b98f20bd",
+        "type": "INTERVAL",
+        "name": "哑铃举重练习开始。",
+        "duration": 30,
+        "restDuration": 20,
+        "rounds": 3,
+        "color": "#FFCC80",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "8fda230f-e7fb-428b-8c4b-1c856f84ac59",
+        "type": "SIMPLE",
+        "name": "休息一分钟。下一个练习俯卧撑。",
+        "duration": 60,
+        "restDuration": 30,
+        "rounds": 4,
+        "color": "#D0BCFF",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "344bd71a-46a6-47b0-978a-bbe9975d43f4",
+        "type": "INTERVAL",
+        "name": "俯卧撑锻炼。",
+        "duration": 20,
+        "restDuration": 20,
+        "rounds": 2,
+        "color": "#FFCC80",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "ea6312f6-08d5-4269-a5db-539d6ea29c85",
+        "type": "SIMPLE",
+        "name": "休息一分钟。下一个锻炼，靠墙静蹲。",
+        "duration": 60,
+        "restDuration": 30,
+        "rounds": 4,
+        "color": "#FFCC80",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "c2a761f1-5699-4663-a5d6-d6ca61c3a8ba",
+        "type": "SIMPLE",
+        "name": "靠墙静蹲开始30秒。",
+        "duration": 30,
+        "restDuration": 10,
+        "rounds": 4,
+        "color": "#FFCC80",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      }
+    ]
+  }
+]

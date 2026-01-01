@@ -1,0 +1,201 @@
+[
+  {
+    "id": "51bb2b82-786d-48a7-9b5d-ab9a0b21aab3",
+    "name": "一般热身",
+    "items": [
+      {
+        "id": "624acf13-3da8-4d65-9cac-1adac4c3822d",
+        "type": "INTERVAL",
+        "name": "开始热身",
+        "duration": 10,
+        "restDuration": 1003,
+        "rounds": 20,
+        "color": "#F2B8B5",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "99f52f45-05ff-4b19-a386-3c48af18cd79",
+        "type": "INTERVAL",
+        "name": "胸部热身",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 20,
+        "color": "#FFCC80",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "aa35f6c8-30df-4b95-8e30-487bc3831da6",
+        "type": "INTERVAL",
+        "name": "热身快完成",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 20,
+        "color": "#C5E1A5",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      }
+    ],
+    "createdAt": 1765672086431
+  },
+  {
+    "id": "9aba7fc6-00b9-4316-b1a6-7e913ac214be",
+    "name": "热身运动",
+    "createdAt": 1765582841268,
+    "items": [
+      {
+        "id": "aa2f2e10-adcf-4a64-adfa-8f7ba8f7c0e1",
+        "type": "SIMPLE",
+        "name": "准备",
+        "duration": 10,
+        "color": "#C5E1A5",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "fef41498-7912-4f3b-a9a2-a4f479c3f306",
+        "type": "INTERVAL",
+        "name": " 左右手热身",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 8,
+        "color": "#C5E1A5",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "a06ad70c-2d55-4459-9387-1b0acaff1127",
+        "type": "INTERVAL",
+        "name": "颈项热身",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 4,
+        "color": "#CCC2DC",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "0ac969a6-aba8-4694-9188-f89525a41bff",
+        "type": "INTERVAL",
+        "name": "肩部热身",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 3,
+        "color": "#F2B8B5",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "c51933c2-8cca-4a24-8f8a-60f67d5d6d73",
+        "type": "INTERVAL",
+        "name": "手臂绕圈",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 4,
+        "color": "#C5E1A5",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "5d303d78-db21-4019-b78a-8c1b0c1b2d06",
+        "type": "SIMPLE",
+        "name": "放松手掌",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 4,
+        "color": "#FFCC80",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "976e0896-725d-4b29-b1f0-6b695601c163",
+        "type": "INTERVAL",
+        "name": "推墙壁",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 2,
+        "color": "#D0BCFF",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "08467e7b-721c-40cd-ae8f-1e851b37c316",
+        "type": "INTERVAL",
+        "name": "脚部分热身",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 8,
+        "color": "#C5E1A5",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "9185e5a2-7d5e-4db0-a8e4-3e3f6ce0915f",
+        "type": "INTERVAL",
+        "name": "腰部热身",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 2,
+        "color": "#D0BCFF",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "c7607e01-5aff-4f9e-b102-7ace5d0be0d9",
+        "type": "INTERVAL",
+        "name": "脚踝热身",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 2,
+        "color": "#B6C4FF",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "b7e3f6f9-942f-4001-9432-a3c2ad4782fb",
+        "type": "INTERVAL",
+        "name": "双脚拉开",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 2,
+        "color": "#C5E1A5",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "51849f0f-ef6a-47f0-a2af-eef06c0db958",
+        "type": "INTERVAL",
+        "name": "弯腰双手触地",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 3,
+        "color": "#FFCC80",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "4d97fc54-233e-4a1b-9697-95b1aecec378",
+        "type": "INTERVAL",
+        "name": "双手向上摆动",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 2,
+        "color": "#C5E1A5",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      },
+      {
+        "id": "d686e999-7807-4369-9d3b-a2b40ef51199",
+        "type": "INTERVAL",
+        "name": "热身快结束了",
+        "duration": 10,
+        "restDuration": 3,
+        "rounds": 20,
+        "color": "#FFCC80",
+        "soundEnabled": true,
+        "vibrationEnabled": true
+      }
+    ]
+  }
+]

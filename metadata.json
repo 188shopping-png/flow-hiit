@@ -1,0 +1,7 @@
+{
+  "name": "Flow HIIT Timer2",
+  "description": "A Material 3 styled HIIT timer with drag-and-drop list management, supporting loops and complex workout structures.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
